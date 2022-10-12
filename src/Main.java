@@ -5,7 +5,7 @@ public class Main {
         employers[0] = new Employee("Петров Александр Иванович", 3, 21000);
         employers[1] = new Employee("Иванов Михаил Илларионович", 1, 39000);
         employers[2] = new Employee("Светлый Николай Николаевич", 1, 37000);
-        employers[3]= new Employee("Баринов Василий Иванович", 1, 17000);
+        employers[3] = new Employee("Баринов Василий Иванович", 1, 17000);
         employers[4] = new Employee("Мотин Матвей Матвеевич", 2, 45000);
         employers[5] = new Employee("Полежайкин Алексей Александрович", 1, 33000);
         employers[6] = new Employee("Робертов Илья Павлович", 2, 28000);
@@ -14,10 +14,10 @@ public class Main {
         employers[9] = new Employee("Мешков Степан Степанович", 3, 33000);
 
         printAllEmployers();
-        System.out.println("Сумма затрат на зп в месяц = " + totalSalary());
-        midSalary();
-        System.out.println("Сотрудник с мин зарплатой = " + minSalary());
-        System.out.println("Сотрудник с макс зарплатой = " + maxSalary());
+        System.out.println("Сумма затрат на зп в месяц = " + calculateTotalSalary());
+        calculateMidSalary();
+        System.out.println("Сотрудник с мин зарплатой = " + calculateMinSalary());
+        System.out.println("Сотрудник с макс зарплатой = " + calculateMaxSalary());
         System.out.println(allEmployers());
         System.out.println();
     }
@@ -31,7 +31,7 @@ public class Main {
         }
     }
 
-    private static String totalSalary() {
+    private static int calculateTotalSalary() {
         int total = 0;
         for (int i = 0; i < employers.length; i++) {
             if (null == employers[i]) {
@@ -39,10 +39,11 @@ public class Main {
             }
             total = total + employers[i].getSalary();
         }
-        return " " + total;
+        return +total;
     }
 
-    private static void midSalary() {
+    private static void calculateMidSalary() {
+        Employee savedEmployee = null;
         double total = 0;
         int count = 0;
         for (int i = 0; i < employers.length; i++) {
@@ -58,7 +59,7 @@ public class Main {
         System.out.println();
     }
 
-    public static Employee minSalary() {
+    public static Employee calculateMinSalary() {
         Employee savedEmployee = null;
         for (int i = 0; i < employers.length; i++) {
             Employee currentEmployee = employers[i];
@@ -76,7 +77,7 @@ public class Main {
         return savedEmployee;
     }
 
-    public static Employee maxSalary() {
+    public static Employee calculateMaxSalary() {
         Employee savedEmployee = null;
         for (int i = 0; i < employers.length; i++) {
             Employee currentEmployee = employers[i];
